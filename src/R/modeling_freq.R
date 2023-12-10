@@ -9,8 +9,10 @@ library(glmmTMB)
 
 # import data -------------------------------------------------------------
 
-fv5_train <- read_csv('~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Dataset/fv5_train.csv')
-test_all <- read_csv('~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Dataset/testall.csv')
+fv5_train1 <- read_csv('~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Dataset/fv5_train1.csv')
+fv5_train2 <- read_csv('~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Dataset/fv5_train2.csv')
+fv5_train <- rbind(fv5_train1, fv5_train2)
+
 
 
 # Modeling ----------------------------------------------------------------
