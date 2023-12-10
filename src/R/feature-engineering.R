@@ -37,10 +37,8 @@ ggplot(fv5, aes(CC1_logNorm, Page_Popularity_Likes_logNorm, colour=Category)) +
 
 # And now it looks better
 
-write_csv(fv5[1:50000, ], '~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Dataset/fv5_train1.csv')
-write_csv(fv5[50001:100000, ], '~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Dataset/fv5_train2.csv')
-write_csv(fv5[100001:150000, ], '~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Dataset/fv5_train3.csv')
-write_csv(fv5[150001:nrow(fv5), ], '~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Dataset/fv5_train4.csv')
+write_csv(fv5[1:100000, ], '~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Dataset/fv5_train1.csv')
+write_csv(fv5[100001:nrow(fv5), ], '~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Dataset/fv5_train2.csv')
 
 # Test Data ---------------------------------------------------------------
 
