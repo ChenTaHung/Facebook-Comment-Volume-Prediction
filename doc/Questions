@@ -1,0 +1,13 @@
+1. Null model validation for multilevel regression model:
+  - Does randomness effect in intercept needs to be considered in null model as well? No need!
+  
+  
+  
+  
+  
+2. Scaling variables:
+  - Does it make sence for a counting measurement variable to be scaled? 
+  - If the data skewed dramatically, is it correct to take log trasnfromation before scaling?
+  
+  
+  log(x + .0001)

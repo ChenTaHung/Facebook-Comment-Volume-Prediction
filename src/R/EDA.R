@@ -116,7 +116,7 @@ ggplot(fv5[,.N,Category]) +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
 
-ggplot(fv5[, .(mean_target = mean(Target_Variable)), Category]) +
+ggplot(fv5[, .(mean_target = mean(log(Target_Variable + 1))), Category]) +
   geom_point(aes(x = Category, y = mean_target, color = mean_target), size = 2) +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
