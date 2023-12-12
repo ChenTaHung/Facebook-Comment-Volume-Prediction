@@ -11,9 +11,10 @@ fv5[, CC3_per_hr := ifelse(is.na(CC3/ Base_Time), 0, CC3/ Base_Time)]
 fv5[, CC4_per_hr := ifelse(is.na(CC4/ Base_Time), 0, CC4/ Base_Time)]
 
 ggplot(fv5, aes(CC1, Page_Popularity_Likes, colour=Category)) +
-    geom_point() +
-    geom_encircle(aes(group=Category)) +
-    theme(legend.position="none")
+  geom_point() +
+  geom_encircle(aes(group=Category)) +
+  theme_bw() +
+  theme(legend.position="none")
 
 # we can see that the scale is large and vary a lot across different columns
 
@@ -31,9 +32,10 @@ for (i in seq_along(cols_to_log_normalize)) {
 # Visualization after 
 
 ggplot(fv5, aes(CC1_logNorm, Page_Popularity_Likes_logNorm, colour=Category)) +
-    geom_point() +
-    geom_encircle(aes(group=Category)) +
-    theme(legend.position="none") 
+  geom_point() +
+  geom_encircle(aes(group=Category)) +
+  theme_bw() +
+  theme(legend.position="none") 
 
 # And now it looks better
 

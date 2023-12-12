@@ -1,4 +1,5 @@
 library(GGally)
+library(gridExtra)
 source('importdata.R')
 
 # CC1 & Target ------------------------------------------------------------
@@ -52,6 +53,17 @@ ggplot(data = fv5[, .(avg_vol_hr = mean(CC1 / Base_Time)), Base_Time]) +
                      name = "Variables", 
                      labels = c("Average CC1 per Hr", "Mean Target"))
 
+ggplot(data = fv5[, .(avg_vol_hr = mean(CC1 / Base_Time)), by = Base_Time]) +
+  geom_point(aes(x = Base_Time, y = avg_vol_hr, color = 'Average CC1 per Hr')) +
+  geom_point(data = fv5[, .(mean_target = mean(Target_Variable)), by = Base_Time], 
+             aes(x = Base_Time, y = mean_target, color = 'Mean Target')) +
+  ylab('Average Comment Volumn per Hr') +
+  scale_color_manual(values = c('Average CC1 per Hr' = 'blue', 'Mean Target' = 'orange'),
+                     name = "Variables", 
+                     labels = c("Average CC1 per Hr", "Mean Target")) +
+  theme_bw()
+
+
 # Average CC1 line is lower than Mean Target
 
 ggplot(data = fv5[, .(avg_vol_hr = mean(CC2 / Base_Time)), Base_Time]) +
@@ -63,6 +75,9 @@ ggplot(data = fv5[, .(avg_vol_hr = mean(CC2 / Base_Time)), Base_Time]) +
                      labels = c("Average CC2 per Hr", "Mean Target"))
 
 
+
+
+
 ggplot(data = fv5[, .(avg_vol_hr = mean(CC4 / Base_Time)), Base_Time]) +
   geom_point(aes(x = Base_Time, y = avg_vol_hr, color = 'Average CC1 per Hr')) +
   geom_point(data = fv5[, .(mean_target = mean(Target_Variable)), by = Base_Time], 
@@ -70,6 +85,41 @@ ggplot(data = fv5[, .(avg_vol_hr = mean(CC4 / Base_Time)), Base_Time]) +
   scale_color_manual(values = c('Average CC4 per Hr' = 'blue', 'Mean Target' = 'orange'),
                      name = "Variables", 
                      labels = c("Average CC4 per Hr", "Mean Target"))
+
+
+
+CC2_avg_prHr <- ggplot(data = fv5[, .(avg_vol_hr = mean(CC2 / Base_Time)), by = Base_Time]) +
+  geom_point(aes(x = Base_Time, y = avg_vol_hr, color = 'Average CC2 per Hr')) +
+  geom_point(data = fv5[, .(mean_target = mean(Target_Variable)), by = Base_Time], 
+             aes(x = Base_Time, y = mean_target, color = 'Mean Target')) +
+  ylab('Average Comment Volumn per Hr') +
+  scale_color_manual(values = c('Average CC2 per Hr' = 'blue', 'Mean Target' = 'orange'),
+                     name = "Variables", 
+                     labels = c("Average CC2 per Hr", "Mean Target")) +
+  theme_bw()
+
+CC3_avg_prHr <- ggplot(data = fv5[, .(avg_vol_hr = mean(CC3 / Base_Time)), by = Base_Time]) +
+  geom_point(aes(x = Base_Time, y = avg_vol_hr, color = 'Average CC3 per Hr')) +
+  geom_point(data = fv5[, .(mean_target = mean(Target_Variable)), by = Base_Time], 
+             aes(x = Base_Time, y = mean_target, color = 'Mean Target')) +
+  ylab('Average Comment Volumn per Hr') +
+  scale_color_manual(values = c('Average CC3 per Hr' = 'blue', 'Mean Target' = 'orange'),
+                     name = "Variables", 
+                     labels = c("Average CC3 per Hr", "Mean Target")) +
+  theme_bw()
+
+CC4_avg_prHr <- ggplot(data = fv5[, .(avg_vol_hr = mean(CC4 / Base_Time)), by = Base_Time]) +
+  geom_point(aes(x = Base_Time, y = avg_vol_hr, color = 'Average CC4 per Hr')) +
+  geom_point(data = fv5[, .(mean_target = mean(Target_Variable)), by = Base_Time], 
+             aes(x = Base_Time, y = mean_target, color = 'Mean Target')) +
+  ylab('Average Comment Volumn per Hr') +
+  scale_color_manual(values = c('Average CC4 per Hr' = 'blue', 'Mean Target' = 'orange'),
+                     name = "Variables", 
+                     labels = c("Average CC4 per Hr", "Mean Target")) +
+  theme_bw()
+
+gridExtra::grid.arrange(CC2_avg_prHr, CC3_avg_prHr, CC4_avg_prHr, ncol = 1, nrow = 3)
+
 
 # C4 to Target ------------------------------------------------------------
 
@@ -84,6 +134,8 @@ tmp <- melt(fv5[,.(CC2 = sum(CC2), CC3 = sum(CC3), CC4 = sum(CC4)), Base_Time],
             id.vars = 'Base_Time', measure.vars = c('CC2', 'CC3', 'CC4'))[
               , Total := sum(value), Base_Time
               ][, Prop := value / Total]
+
+
 ggplot(data = tmp) +
   geom_bar(aes(x = Base_Time, y = Prop, fill = variable), position = 'stack', stat = 'identity') +
   scale_x_continuous(breaks = seq(1,72)) +
