@@ -68,3 +68,26 @@ for (i in seq_along(cols_to_log_normalize)) {
 }
 
 write_csv(Test_all, '~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Dataset/testall.csv')
+
+# Cor Matrix --------------------------------------------------------------
+
+cor_matrix <- cor(fv5[, c("CC1_logNorm", "CC2_logNorm", "CC3_logNorm", "CC4_logNorm", "CC5",
+                          "Page_Popularity_Likes_logNorm", "Page_Checkins_logNorm", 
+                          "Page_Talking_About_logNorm", "Post_Length_logNorm", 
+                          "Post_Share_Count_logNorm", "CC2_per_hr_logNorm", 
+                          "CC3_per_hr_logNorm", "CC4_per_hr_logNorm")])
+
+# Melt the correlation matrix for ggplot
+melted_cor_matrix <- melt(cor_matrix)
+
+# Create the heatmap
+ggplot(data = melted_cor_matrix, aes(x = Var1, y = Var2, fill = value)) +
+  geom_tile() +
+  geom_text(aes(label = sprintf("%.2f", value)), vjust = 1) +
+  scale_fill_gradient2(low = "blue", high = "red", mid = "white", 
+                       midpoint = 0, limit = c(-1,1), space = "Lab", 
+                       name="Pearson\nCorrelation") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +
+  labs(x = "", y = "", title = "Correlation Matrix Heatmap") 
+

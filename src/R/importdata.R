@@ -1,6 +1,6 @@
 library(tidyverse)
 library(data.table)
-
+setwd('/Users/chentahung/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/')
 coln <- fread('/Users/chentahung/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Dataset/FeatureNames.csv')
 coln[, feature := gsub(' ', "_", gsub('[[:punct:]]', '', feature))]
 
