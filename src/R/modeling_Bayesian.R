@@ -5,8 +5,8 @@ library(rstanarm)
 library(rstan)
 library(tidyverse)
 
-fv5_train1 <- read_csv('~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Dataset/fv5_train1.csv')
-fv5_train2 <- read_csv('~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Dataset/fv5_train2.csv')
+fv5_train1 <- read_csv('Final-Project/Remote-Git/data/Dataset/fv5_train1.csv')
+fv5_train2 <- read_csv('Final-Project/Remote-Git/data/Dataset/fv5_train2.csv')
 
 fv5_train <- rbind(fv5_train1, fv5_train2)
 
@@ -32,7 +32,7 @@ plot_model(NegBinBayesFit,type = 'est')
 
 pp_check(NegBinBayesFit)
 
-# save(NegBinBayesFit, file = '~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Model-Object/MixEffNegBinBayesFit.RDS')
+# save(NegBinBayesFit, file = 'Final-Project/Remote-Git/data/Model-Object/MixEffNegBinBayesFit.RDS')
 
 
 # NB laplace prior --------------------------------------------------------

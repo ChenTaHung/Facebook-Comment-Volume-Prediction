@@ -39,8 +39,8 @@ ggplot(fv5, aes(CC1_logNorm, Page_Popularity_Likes_logNorm, colour=Category)) +
 
 # And now it looks better
 
-write_csv(fv5[1:100000, ], '~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Dataset/fv5_train1.csv')
-write_csv(fv5[100001:nrow(fv5), ], '~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Dataset/fv5_train2.csv')
+write_csv(fv5[1:100000, ], 'Final-Project/Remote-Git/data/Dataset/fv5_train1.csv')
+write_csv(fv5[100001:nrow(fv5), ], 'Final-Project/Remote-Git/data/Dataset/fv5_train2.csv')
 
 # Test Data ---------------------------------------------------------------
 
@@ -67,7 +67,7 @@ for (i in seq_along(cols_to_log_normalize)) {
   rm(list = c('colMean', 'std', 'logged', 'normalized'))
 }
 
-write_csv(Test_all, '~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Dataset/testall.csv')
+write_csv(Test_all, 'Final-Project/Remote-Git/data/Dataset/testall.csv')
 
 # Cor Matrix --------------------------------------------------------------
 

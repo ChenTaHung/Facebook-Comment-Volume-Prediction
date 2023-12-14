@@ -1,29 +1,29 @@
 source('src/R/validation-functions.R')
 
-test_all <- read_csv('~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Dataset/testall.csv')
+test_all <- read_csv('Final-Project/Remote-Git/data/Dataset/testall.csv')
 
 
 # Load Feature Select ME ZI NB --------------------------------------------
 
-load('~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Model-Object/FeatureSelected_MixEffZeroInfNegBinFreqFit.RDS')
+load('Final-Project/Remote-Git/data/Model-Object/FeatureSelected_MixEffZeroInfNegBinFreqFit.RDS')
 
 # Load mixed effect negative binomial Bayes fit -------------
 
-load('~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Model-Object/MixEffNegBinBayesFit.RDS')
+load('Final-Project/Remote-Git/data/Model-Object/MixEffNegBinBayesFit.RDS')
 
 
 # Load mixed effect zero inflation negative binomial freq fit -------------
 
-load('~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Model-Object/MixEffZeroInfNegBinFreqFit.RDS')
+load('Final-Project/Remote-Git/data/Model-Object/MixEffZeroInfNegBinFreqFit.RDS')
 
 
 # Load ZI NB freq fit -----------------------------------------------------
 
-load('~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Model-Object/zInfNegBinFreqFit_noMixEff.RDS')
+load('Final-Project/Remote-Git/data/Model-Object/zInfNegBinFreqFit_noMixEff.RDS')
 
 # Load QuasiPoisson fit ---------------------------------------------------
 
-load('~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Model-Object/quasiPoisFreqFit.RDS')
+load('Final-Project/Remote-Git/data/Model-Object/quasiPoisFreqFit.RDS')
 
 # Fitted Model ------------------------------------------------------------
 

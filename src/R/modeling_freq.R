@@ -9,8 +9,8 @@ library(glmmTMB)
 
 # import data -------------------------------------------------------------
 
-fv5_train1 <- read_csv('~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Dataset/fv5_train1.csv')
-fv5_train2 <- read_csv('~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Dataset/fv5_train2.csv')
+fv5_train1 <- read_csv('Remote-Git/data/Dataset/fv5_train1.csv')
+fv5_train2 <- read_csv('data/Dataset/fv5_train2.csv')
 fv5_train <- rbind(fv5_train1, fv5_train2)
 
 
@@ -31,7 +31,7 @@ MixEffZeroInfNegBinFit_FS <- glmmTMB(formula = Target_Variable ~ CC4_logNorm + C
 
 summary(MixEffZeroInfNegBinFit_FS)
 
-save(MixEffZeroInfNegBinFit_FS, file = '~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Model-Object/FeatureSelected_MixEffZeroInfNegBinFreqFit.RDS')
+save(MixEffZeroInfNegBinFit_FS, file = 'Remote-Git/data/Model-Object/FeatureSelected_MixEffZeroInfNegBinFreqFit.RDS')
 
 # Mixed Effect ------------------------------------------------------------
 
@@ -48,7 +48,7 @@ MixEffZeroInfNegBinFit <- glmmTMB(formula = Target_Variable ~ CC1_logNorm + CC2_
 
 summary(MixEffZeroInfNegBinFit)
 
-save(MixEffZeroInfNegBinFit, file = '~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Model-Object/MixEffZeroInfNegBinFreqFit.RDS')
+save(MixEffZeroInfNegBinFit, file = 'Remote-Git/data/Model-Object/MixEffZeroInfNegBinFreqFit.RDS')
 
 
 # NB Null -----------------------------------------------------------------
@@ -70,7 +70,7 @@ zInfNegBinFit_noMixEff <- zeroinfl(formula = Target_Variable ~ CC1_logNorm + CC2
 
 summary(zInfNegBinFit_noMixEff)
 
-save(zInfNegBinFit_noRandEff, file = '~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Model-Object/zInfNegBinFreqFit_noMixEff.RDS')
+save(zInfNegBinFit_noRandEff, file = 'Remote-Git/data/Model-Object/zInfNegBinFreqFit_noMixEff.RDS')
 
 zInfNegBinFitNullModel_noRandEff <- zeroinfl(formula = Target_Variable ~ 1, data = fv5_train, dist = 'negbin')
 
@@ -87,7 +87,7 @@ quasiPoisFit <- glm(formula = Target_Variable ~ CC1_logNorm + CC2_logNorm + CC3_
                             offset(log(Base_Time+1)), data = fv5_train, family = quasipoisson())
 
 
-save(quasiPoisFit,file = '~/Desktop/MSSP/MA678-AppliedStatisticalModeling/Final-Project/Remote-Git/data/Model-Object/quasiPoisFreqFit.RDS')
+save(quasiPoisFit,file = 'Remote-Git/data/Model-Object/quasiPoisFreqFit.RDS')
 
 
 summary(quasiPoisFit)
