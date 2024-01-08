@@ -4,7 +4,7 @@ The project is an academic projects using statistical models to estimate the com
 
 Final report: 
 
-[Frequentist method](https://github.com/ChenTaHung/Facebook-Comment-Volume-Prediction/blob/main/doc/MA578-Final-Project-Report-Denny.pdf)
+[Frequentist method](https://github.com/ChenTaHung/Facebook-Comment-Volume-Prediction/blob/main/doc/MA678-Final-Project-Report-Denny.pdf)
 
 [Bayesian method](https://github.com/ChenTaHung/Facebook-Comment-Volume-Prediction/blob/main/doc/MA578-Final-Project-Report-Denny.pdf)
 
